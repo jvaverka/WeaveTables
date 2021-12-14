@@ -1,0 +1,81 @@
+---
+title: md2pdf test
+author: me
+weave_options:
+    doctype: md2pdf
+---
+
+## DataFrame
+
+```julia
+using DataFrames
+using PrettyTables
+using Latexify
+
+df = DataFrame("a" => 1, "b" => 2, "c" => 3)
+```
+
+## Latexify
+
+```julia
+latexify(df)
+```
+
+## PrettyTable
+
+```julia
+df |> pretty_table
+```
+
+### Default
+
+```julia
+pretty_table(df, tf=PrettyTables.tf_latex_default)
+```
+
+### Simple
+
+```julia
+pretty_table(df, tf=PrettyTables.tf_latex_simple)
+```
+
+### Book Tabs
+
+```julia
+pretty_table(df, tf=PrettyTables.tf_latex_booktabs)
+```
+
+## Alternative
+
+Reproducing issue: [Incorporating LaTeX output from code chunk](https://github.com/JunoLab/Weave.jl/issues/276).
+
+### Latex Backend
+
+```julia; results = "tex";
+pretty_table(df, backend = :latex)
+```
+
+### Markup Backend
+
+```julia; results = "tex";
+pretty_table(df, backend = :markup)
+```
+
+### Function
+
+Another alternative solution offered from issue:
+[Visualizing a table in weave report?](https://github.com/JunoLab/Weave.jl/issues/200).
+
+```julia
+function latextable(df)
+    io = IOBuffer();
+    show(io, MIME("text/latex"), df; eltypes = false);
+    print(String(take!(io)));
+end
+```
+
+Test the function `latextable`.
+
+```julia; results = "tex";
+latextable(df)
+```
