@@ -285,5 +285,27 @@ Test the function \texttt{latextable}.
 \end{tabular}
 
 
+\subsection{New}
+
+\begin{lstlisting}
+(*@\HLJLnf{pretty{\_}table}@*)(*@\HLJLp{(}@*)
+    (*@\HLJLn{df}@*)(*@\HLJLp{;}@*)
+    (*@\HLJLn{title}@*) (*@\HLJLoB{=}@*) (*@\HLJLs{"{}My}@*) (*@\HLJLs{Title"{}}@*)(*@\HLJLp{,}@*)
+    (*@\HLJLn{title{\_}alignment}@*) (*@\HLJLoB{=}@*) (*@\HLJLsc{:c}@*)(*@\HLJLp{,}@*)
+    (*@\HLJLn{header}@*) (*@\HLJLoB{=}@*) (*@\HLJLp{[}@*)(*@\HLJLs{"{}A"{}}@*)(*@\HLJLp{,}@*) (*@\HLJLs{"{}B"{}}@*)(*@\HLJLp{,}@*) (*@\HLJLs{"{}C"{}}@*)(*@\HLJLp{],}@*)
+    (*@\HLJLn{backend}@*) (*@\HLJLoB{=}@*) (*@\HLJLsc{:latex}@*)(*@\HLJLp{,}@*)
+(*@\HLJLp{)}@*)
+\end{lstlisting}
+
+\begin{table}
+  \caption{My Title}
+  \begin{tabular}{rrr}
+    \hline\hline
+    \textbf{A} & \textbf{B} & \textbf{C} \\\hline
+    1 & 2 & 3 \\\hline\hline
+  \end{tabular}
+\end{table}
+
+
 
 \end{document}

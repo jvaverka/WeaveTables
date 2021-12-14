@@ -79,3 +79,15 @@ Test the function `latextable`.
 ```julia; results = "tex";
 latextable(df)
 ```
+
+## New
+
+```julia; results = "tex";
+pretty_table(
+    df;
+    title = "My Title",
+    title_alignment = :c,
+    header = ["A", "B", "C"],
+    backend = :latex,
+)
+```
